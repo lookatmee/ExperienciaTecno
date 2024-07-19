@@ -18,7 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <Folder Include="Autommapings\" />
+    <Folder Include="Controllers\Dtos\" />
   </ItemGroup>
 
   <ItemGroup>
