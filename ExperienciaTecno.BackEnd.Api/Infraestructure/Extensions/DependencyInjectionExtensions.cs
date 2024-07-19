@@ -15,7 +15,6 @@ using ExperienciaTecno.BackEnd.Core.Product.Services.Impl;
 using ExperienciaTecno.BackEnd.Core.Product.Validators;
 using ExperienciaTecno.BackEnd.Data.EF.Repositories;
 using FluentValidation;
-using Microsoft.AspNetCore.Identity;
 
 namespace ExperienciaTecno.BackEnd.Api.Infraestructure.Extensions;
 
