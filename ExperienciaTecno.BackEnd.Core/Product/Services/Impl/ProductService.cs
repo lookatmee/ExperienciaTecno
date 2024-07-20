@@ -29,6 +29,7 @@ public class ProductService(IProductRepository productRepository, IValidator<Mod
 
     public async Task Add(Models.Product product)
     {
+        product.Id = Guid.NewGuid();
         var validationProduct = await Validator.ValidateAsync(product);
 
         if (validationProduct.IsValid)

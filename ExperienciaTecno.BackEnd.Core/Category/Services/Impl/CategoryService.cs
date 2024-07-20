@@ -28,7 +28,9 @@ public class CategoryService(ICategoryRepository categoryRepository, IValidator<
 
     public async Task Add(Models.Category category)
     {
+        category.Id = Guid.NewGuid();
         var validationCategory = await Validator.ValidateAsync(category);
+
         if (validationCategory.IsValid)
         {
             throw new ValidationException(validationCategory.Errors);

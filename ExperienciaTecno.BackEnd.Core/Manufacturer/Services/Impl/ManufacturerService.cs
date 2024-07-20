@@ -28,7 +28,9 @@ public class ManufacturerService(IManufacturerRepository manufacturerRepository,
 
     public async Task Add(Models.Manufacturer manufacturer)
     {
+        manufacturer.Id = Guid.NewGuid();
         var validationManufacturer = await Validator.ValidateAsync(manufacturer);
+
         if (validationManufacturer.IsValid)
         {
             throw new ValidationException(validationManufacturer.Errors);
