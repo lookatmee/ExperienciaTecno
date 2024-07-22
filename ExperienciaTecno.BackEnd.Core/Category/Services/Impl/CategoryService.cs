@@ -31,7 +31,7 @@ public class CategoryService(ICategoryRepository categoryRepository, IValidator<
         category.Id = Guid.NewGuid();
         var validationCategory = await Validator.ValidateAsync(category);
 
-        if (validationCategory.IsValid)
+        if (!validationCategory.IsValid)
         {
             throw new ValidationException(validationCategory.Errors);
         }

@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Autommapings\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ExperienciaTecno.BackEnd.Core\ExperienciaTecno.BackEnd.Core.csproj" />
     <ProjectReference Include="..\ExperienciaTecno.BackEnd.Data.EF\ExperienciaTecno.BackEnd.Data.EF.csproj" />
   </ItemGroup>

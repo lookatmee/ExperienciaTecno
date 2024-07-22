@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ExperienciaTecno.BackEnd.Api.Controllers.Dtos;
+using ExperienciaTecno.BackEnd.Core.Category.Models;
 using ExperienciaTecno.BackEnd.Core.Category.Services;
 using ExperienciaTecno.BackEnd.Core.Common.Data;
 using ExperienciaTecno.BackEnd.Core.Common.Exceptions;
@@ -59,11 +60,11 @@ public class CategoryController(ICategoryService categoryService, IMapper mapper
     [Route("create")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<CategoryDto>> Create(CategoryDto categoryDto)
+    public async Task<ActionResult<CategoryDto>> Create(CreateCategoryDto createCategoryDto)
     {
         try
         {
-            var category = await CategoryService.GetById(categoryDto.Id);
+            var category = Mapper.Map<Category>(createCategoryDto);
             await CategoryService.Add(category);
             await UnitOfWork.CommitAsync();
             return Ok(Mapper.Map<CategoryDto>(category));
