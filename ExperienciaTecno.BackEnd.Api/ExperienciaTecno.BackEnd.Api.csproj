@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Autommapings\" />
-    <Folder Include="Controllers\Dtos\" />
   </ItemGroup>
 
   <ItemGroup>
