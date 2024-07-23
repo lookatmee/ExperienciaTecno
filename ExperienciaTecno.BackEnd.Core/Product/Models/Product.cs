@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using ExperienciaTecno.BackEnd.Core.Especificationes.Models;
+﻿using ExperienciaTecno.BackEnd.Core.Especificationes.Models;
 
 namespace ExperienciaTecno.BackEnd.Core.Product.Models;
 

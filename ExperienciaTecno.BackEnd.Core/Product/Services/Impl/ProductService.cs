@@ -32,7 +32,7 @@ public class ProductService(IProductRepository productRepository, IValidator<Mod
         product.Id = Guid.NewGuid();
         var validationProduct = await Validator.ValidateAsync(product);
 
-        if (validationProduct.IsValid)
+        if (!validationProduct.IsValid)
         {
             throw new ValidationException(validationProduct.Errors);
         }

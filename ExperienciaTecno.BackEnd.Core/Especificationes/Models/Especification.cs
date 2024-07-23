@@ -2,7 +2,7 @@
 
 public class Especification
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
     public string? Label { get; set; }
     public string? Description { get; set; }
     public Product.Models.Product? Product { get; set; }
