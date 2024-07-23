@@ -35,6 +35,9 @@ public class GenericEfRepository<T, TDbContext> : IGenericRepository<T> where T 
     public void AddRange(IEnumerable<T> entities)
         => DbContext.AddRange(entities);
 
+    public async Task AddRangeAsync(IEnumerable<T> entities)
+        => await DbContext.AddRangeAsync(entities);
+
     public void Remove(T entity)
         => DbContext.Remove(entity);
 

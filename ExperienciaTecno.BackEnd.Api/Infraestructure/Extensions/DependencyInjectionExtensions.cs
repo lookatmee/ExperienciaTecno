@@ -18,6 +18,9 @@ using ExperienciaTecno.BackEnd.Core.Product.Validators;
 using ExperienciaTecno.BackEnd.Data.EF;
 using ExperienciaTecno.BackEnd.Data.EF.Repositories;
 using FluentValidation;
+using ExperienciaTecno.BackEnd.Core.Especificationes.Services;
+using ExperienciaTecno.BackEnd.Core.Especificationes.Services.Impl;
+using ExperienciaTecno.BackEnd.Core.Especificationes.Repositories;
 
 namespace ExperienciaTecno.BackEnd.Api.Infraestructure.Extensions;
 
@@ -36,6 +39,7 @@ public static class DependencyInjectionExtensions
         services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<IManufacturerService, ManufacturerService>();
         services.AddScoped<IProductService, ProductService>();
+        services.AddScoped<IEspecificationService, EspecificationService>();
     }
 
     public static void RegisterRepositories(this IServiceCollection services)
@@ -43,6 +47,7 @@ public static class DependencyInjectionExtensions
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IManufacturerRepository, ManufacturerRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<IEspecificationRepository, EspecificationRepository>();
     }
 
     public static void RegisterValidators(this IServiceCollection services)
