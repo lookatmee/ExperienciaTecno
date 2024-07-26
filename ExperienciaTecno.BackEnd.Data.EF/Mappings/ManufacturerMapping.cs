@@ -14,13 +14,5 @@ public class ManufacturerMapping : IEntityTypeConfiguration<Manufacturer>
         builder.Property(m => m.Name)
             .IsRequired()
             .HasMaxLength(200);
-
-        builder.Property(m => m.Address)
-            .IsRequired()
-            .HasMaxLength(300);
-
-        builder.Property(m => m.Phone)
-            .IsRequired()
-            .HasMaxLength(15);
     }
 }

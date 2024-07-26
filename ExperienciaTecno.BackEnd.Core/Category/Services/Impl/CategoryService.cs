@@ -40,14 +40,13 @@ public class CategoryService(ICategoryRepository categoryRepository, IValidator<
 
     public async Task Update(Models.Category category)
     {
-        var categoryToUpdate = await GetById(category.Id);
-        var validationCategory = await Validator.ValidateAsync(categoryToUpdate);
+        var validationCategory = await Validator.ValidateAsync(category);
 
-        if (validationCategory.IsValid) 
+        if (!validationCategory.IsValid) 
         {
             throw new ValidationException(validationCategory.Errors);
         }
-        CategoryRepository.Update(categoryToUpdate);
+        CategoryRepository.Update(category);
     }
 
     public async Task Delete(Guid id)

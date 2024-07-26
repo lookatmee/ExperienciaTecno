@@ -4,6 +4,7 @@ using ExperienciaTecno.BackEnd.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExperienciaTecno.BackEnd.Data.EF.Migrations
 {
     [DbContext(typeof(BackEndDbContext))]
-    partial class BackEndDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240723012230_DeletePropertiesManufacturer")]
+    partial class DeletePropertiesManufacturer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -31,7 +31,7 @@ public class ManufacturerService(IManufacturerRepository manufacturerRepository,
         manufacturer.Id = Guid.NewGuid();
         var validationManufacturer = await Validator.ValidateAsync(manufacturer);
 
-        if (validationManufacturer.IsValid)
+        if (!validationManufacturer.IsValid)
         {
             throw new ValidationException(validationManufacturer.Errors);
         }
@@ -40,14 +40,13 @@ public class ManufacturerService(IManufacturerRepository manufacturerRepository,
 
     public async Task Update(Models.Manufacturer manufacturer)
     {
-        var manufacturerToUpdate = await GetById(manufacturer.Id);
-        var validationManufacturer = await Validator.ValidateAsync(manufacturerToUpdate);
+        var validationManufacturer = await Validator.ValidateAsync(manufacturer);
 
-        if (validationManufacturer.IsValid)
+        if (!validationManufacturer.IsValid)
         {
             throw new ValidationException(validationManufacturer.Errors);
         }
-        ManufacturerRepository.Update(manufacturerToUpdate);
+        ManufacturerRepository.Update(manufacturer);
     }
 
     public async Task Delete(Guid id)

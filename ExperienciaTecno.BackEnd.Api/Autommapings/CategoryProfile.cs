@@ -10,5 +10,7 @@ public class CategoryProfile : Profile
     {
         CreateMap<Category, CategoryDto>();
         CreateMap<CreateCategoryDto, Category>();
+        CreateMap<UpdateCategoryDto, Category>();
+        CreateMap<Category, Category>().ForMember(d => d.Id, o => o.Ignore());
     }
 }
