@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using ExperienciaTecno.BackEnd.Api.Controllers.Dtos;
-using ExperienciaTecno.BackEnd.Core.Especificationes.Models;
+using ExperienciaTecno.BackEnd.Api.Controllers.Dtos.Product;
 using ExperienciaTecno.BackEnd.Core.Product.Models;
-using System.Security.Cryptography.Xml;
 
 namespace ExperienciaTecno.BackEnd.Api.Autommapings;
 
@@ -12,6 +10,8 @@ public class ProductProfile : Profile
     {
         CreateMap<CreateProductDto, Product>();
         CreateMap<Product, ProductDto>()
-            .ForMember(d => d.Specifications, o => o.MapFrom(src => src.Especifications));
+            .ForMember(d => d.Specifications, o => o.MapFrom(src => src.Especifications));        
+        CreateMap<Product, Product>().ForMember(d => d.Id, o => o.Ignore());
+        CreateMap<UpdateProductDto, Product>();
     }
 }

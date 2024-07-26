@@ -5,5 +5,5 @@ namespace ExperienciaTecno.BackEnd.Core.Especificationes.Repositories;
 
 public interface IEspecificationRepository : IGenericRepository<Especification>
 {
-
+    Task<IEnumerable<Especification>> GetSpecificationsByProductId(Guid productId);
 }

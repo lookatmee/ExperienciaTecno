@@ -1,6 +1,8 @@
-﻿namespace ExperienciaTecno.BackEnd.Api.Controllers.Dtos;
+﻿using ExperienciaTecno.BackEnd.Api.Controllers.Dtos.Specification;
 
-public class CreateProductDto
+namespace ExperienciaTecno.BackEnd.Api.Controllers.Dtos.Product;
+
+public class ProductDto
 {
     public string Name { get; set; } = null!;
     public string Description { get; set; } = null!;
@@ -9,7 +11,5 @@ public class CreateProductDto
     public string ImagePath1 { get; set; } = null!;
     public string ImagePath2 { get; set; } = null!;
     public string ImagePath3 { get; set; } = null!;
-    public Guid ManufacturerId { get; set; }
-    public Guid CategoryId { get; set; }
-    public List<SpecificationDto> Specifications{ get; set; }
+    public List<SpecificationDto>? Specifications { get; set; }
 }

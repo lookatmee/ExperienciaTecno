@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using ExperienciaTecno.BackEnd.Api.Controllers.Dtos;
+using ExperienciaTecno.BackEnd.Api.Controllers.Dtos.Specification;
 using ExperienciaTecno.BackEnd.Core.Especificationes.Models;
 
 namespace ExperienciaTecno.BackEnd.Api.Autommapings;

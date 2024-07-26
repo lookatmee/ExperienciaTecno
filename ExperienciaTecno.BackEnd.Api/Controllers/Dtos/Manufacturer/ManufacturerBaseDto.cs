@@ -1,4 +1,4 @@
-﻿namespace ExperienciaTecno.BackEnd.Api.Controllers.Dtos;
+﻿namespace ExperienciaTecno.BackEnd.Api.Controllers.Dtos.Manufacturer;
 
 public class ManufacturerBaseDto
 {

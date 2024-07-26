@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using ExperienciaTecno.BackEnd.Api.Controllers.Dtos;
+using ExperienciaTecno.BackEnd.Api.Controllers.Dtos.Manufacturer;
 using ExperienciaTecno.BackEnd.Core.Common.Data;
 using ExperienciaTecno.BackEnd.Core.Common.Exceptions;
 using ExperienciaTecno.BackEnd.Core.Manufacturer.Models;

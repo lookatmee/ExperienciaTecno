@@ -4,6 +4,6 @@ namespace ExperienciaTecno.BackEnd.Core.Especificationes.Services;
 
 public interface IEspecificationService
 {
-    Task UpdateAll(Especification especification);
+    Task UpdateAll(Guid productId, List<Especification> specifications);
     Task AddRangeAsync(List<Especification> specifications);
 }

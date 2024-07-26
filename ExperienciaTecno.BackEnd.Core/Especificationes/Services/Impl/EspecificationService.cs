@@ -22,8 +22,15 @@ public class EspecificationService : IEspecificationService
         await EspecificationRepository.AddRangeAsync(specifications);
     }
 
-    public Task UpdateAll(Especification especification)
+    public async Task UpdateAll(Guid productId, List<Especification> specifications)
     {
-        throw new NotImplementedException();
+        var specificationList = await EspecificationRepository.GetSpecificationsByProductId(productId);
+
+        if (specificationList.Any())
+        {
+            EspecificationRepository.RemoveRange(specificationList);
+        }
+
+        await EspecificationRepository.AddRangeAsync(specifications);
     }
 }

@@ -40,14 +40,15 @@ public class ProductService(IProductRepository productRepository, IValidator<Mod
     }
     public async Task Update(Models.Product product)
     {
-        var productToUpdate = await GetById(product.Id);
-        var validationProduct = await Validator.ValidateAsync(productToUpdate);
+        product.UpdatedAt = DateTime.Now;
+
+        var validationProduct = await Validator.ValidateAsync(product);
         
-        if (validationProduct.IsValid) 
+        if (!validationProduct.IsValid) 
         {
             throw new ValidationException(validationProduct.Errors);
         }
-        ProductRepository.Update(productToUpdate);
+        ProductRepository.Update(product);
     }
 
     public async Task Delete(Guid id)
