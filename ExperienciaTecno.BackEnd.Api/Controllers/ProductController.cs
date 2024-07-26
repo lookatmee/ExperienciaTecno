@@ -1,16 +1,15 @@
 ﻿using AutoMapper;
-using ExperienciaTecno.BackEnd.Api.Controllers.Dtos;
+using ExperienciaTecno.BackEnd.Api.Controllers.Dtos.Product;
 using ExperienciaTecno.BackEnd.Core.Common.Data;
-using ExperienciaTecno.BackEnd.Core.Common.Data.Impl;
 using ExperienciaTecno.BackEnd.Core.Common.Exceptions;
 using ExperienciaTecno.BackEnd.Core.Especificationes.Models;
 using ExperienciaTecno.BackEnd.Core.Especificationes.Services;
 using ExperienciaTecno.BackEnd.Core.Especificationes.Services.Impl;
 using ExperienciaTecno.BackEnd.Core.Product.Models;
 using ExperienciaTecno.BackEnd.Core.Product.Services;
-using ExperienciaTecno.BackEnd.Core.Product.Services.Impl;
-using Microsoft.AspNetCore.Http;
+using ExperienciaTecno.BackEnd.Data.EF.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.AccessControl;
 
 namespace ExperienciaTecno.BackEnd.Api.Controllers
 {
@@ -53,5 +52,45 @@ namespace ExperienciaTecno.BackEnd.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
+        [HttpPut]
+        [Route("modify")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<ProductDto>> Modify([FromBody] UpdateProductDto updateProductDto)
+        {
+            try
+            {
+                var productToUpdate = await ProductService.GetById(updateProductDto.Id);
+
+                var newProduct = Mapper.Map<Product>(updateProductDto);
+
+                Mapper.Map(newProduct, productToUpdate);
+
+                await ProductService.Update(productToUpdate);
+
+                var specifications = updateProductDto.Specifications.Select(x => Mapper.Map<Especification>(x)).ToList();
+                specifications.ForEach (x => x.Product = productToUpdate);
+                await EspecificationService.UpdateAll(productToUpdate.Id, specifications);
+
+                await UnitOfWork.CommitAsync();
+
+                var product = await ProductService.GetById(productToUpdate.Id);
+
+                var productDto = Mapper.Map<ProductDto>(product);
+
+                return CreatedAtAction(nameof(Modify), new { id = productToUpdate.Id }, productDto);
+
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
     }
 }
