@@ -12,11 +12,6 @@ public class EspecificationService : IEspecificationService
         EspecificationRepository = especificationRepository;
     }
 
-    public Task Add(Especification especification)
-    {
-        throw new NotImplementedException();
-    }
-
     public async Task AddRangeAsync(List<Especification> specifications)
     {
         if (specifications.Count == 0)
@@ -25,5 +20,10 @@ public class EspecificationService : IEspecificationService
         }
 
         await EspecificationRepository.AddRangeAsync(specifications);
+    }
+
+    public Task UpdateAll(Especification especification)
+    {
+        throw new NotImplementedException();
     }
 }
