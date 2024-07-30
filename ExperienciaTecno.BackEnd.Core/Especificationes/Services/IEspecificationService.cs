@@ -6,4 +6,5 @@ public interface IEspecificationService
 {
     Task UpdateAll(Guid productId, List<Especification> specifications);
     Task AddRangeAsync(List<Especification> specifications);
+    Task Delete(Guid id);
 }
