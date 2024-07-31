@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
-using ExperienciaTecno.BackEnd.Api.Controllers.Dtos.Manufacturer;
 using ExperienciaTecno.BackEnd.Api.Controllers.Dtos.Product;
 using ExperienciaTecno.BackEnd.Core.Common.Data;
 using ExperienciaTecno.BackEnd.Core.Common.Exceptions;
 using ExperienciaTecno.BackEnd.Core.Especificationes.Models;
 using ExperienciaTecno.BackEnd.Core.Especificationes.Services;
-using ExperienciaTecno.BackEnd.Core.Manufacturer.Services.Impl;
 using ExperienciaTecno.BackEnd.Core.Product.Models;
 using ExperienciaTecno.BackEnd.Core.Product.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -25,12 +23,11 @@ namespace ExperienciaTecno.BackEnd.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<ProductDto>> GetById(Guid Id)
+        public async Task<ActionResult<ProductDto>> GetById(Guid id)
         {
             try
             {
-                var product = await ProductService.GetById(Id);
-
+                var product = await ProductService.GetById(id);
                 var productDto = Mapper.Map<ProductDto>(product);
 
                 return Ok(productDto);

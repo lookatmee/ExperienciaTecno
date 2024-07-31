@@ -33,7 +33,7 @@ public class ProductRepository(BackEndDbContext dbContext)
 
     public async Task<Product?> GetById(Guid? id)
     {
-        var product = await DbContext.Products.SingleOrDefaultAsync(x => x.Id == id);
+        var product = await DbContext.Products.Include(x => x.Especifications).SingleOrDefaultAsync(x => x.Id == id);
         return product;
     }
 }
