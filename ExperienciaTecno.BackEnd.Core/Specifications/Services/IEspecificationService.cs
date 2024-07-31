@@ -1,6 +1,6 @@
-﻿using ExperienciaTecno.BackEnd.Core.Especificationes.Models;
+﻿using ExperienciaTecno.BackEnd.Core.Specifications.Models;
 
-namespace ExperienciaTecno.BackEnd.Core.Especificationes.Services;
+namespace ExperienciaTecno.BackEnd.Core.Specifications.Services;
 
 public interface IEspecificationService
 {

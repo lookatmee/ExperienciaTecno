@@ -18,9 +18,9 @@ using ExperienciaTecno.BackEnd.Core.Product.Validators;
 using ExperienciaTecno.BackEnd.Data.EF;
 using ExperienciaTecno.BackEnd.Data.EF.Repositories;
 using FluentValidation;
-using ExperienciaTecno.BackEnd.Core.Especificationes.Services;
-using ExperienciaTecno.BackEnd.Core.Especificationes.Services.Impl;
-using ExperienciaTecno.BackEnd.Core.Especificationes.Repositories;
+using ExperienciaTecno.BackEnd.Core.Specifications.Services;
+using ExperienciaTecno.BackEnd.Core.Specifications.Services.Impl;
+using ExperienciaTecno.BackEnd.Core.Specifications.Repositories;
 
 namespace ExperienciaTecno.BackEnd.Api.Infraestructure.Extensions;
 

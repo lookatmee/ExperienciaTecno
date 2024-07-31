@@ -1,7 +1,7 @@
-﻿using ExperienciaTecno.BackEnd.Core.Especificationes.Models;
-using ExperienciaTecno.BackEnd.Core.Especificationes.Repositories;
+﻿using ExperienciaTecno.BackEnd.Core.Specifications.Models;
+using ExperienciaTecno.BackEnd.Core.Specifications.Repositories;
 
-namespace ExperienciaTecno.BackEnd.Core.Especificationes.Services.Impl;
+namespace ExperienciaTecno.BackEnd.Core.Specifications.Services.Impl;
 
 public class EspecificationService : IEspecificationService
 {

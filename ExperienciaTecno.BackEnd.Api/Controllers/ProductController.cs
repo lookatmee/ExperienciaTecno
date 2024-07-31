@@ -2,8 +2,8 @@
 using ExperienciaTecno.BackEnd.Api.Controllers.Dtos.Product;
 using ExperienciaTecno.BackEnd.Core.Common.Data;
 using ExperienciaTecno.BackEnd.Core.Common.Exceptions;
-using ExperienciaTecno.BackEnd.Core.Especificationes.Models;
-using ExperienciaTecno.BackEnd.Core.Especificationes.Services;
+using ExperienciaTecno.BackEnd.Core.Specifications.Models;
+using ExperienciaTecno.BackEnd.Core.Specifications.Services;
 using ExperienciaTecno.BackEnd.Core.Product.Models;
 using ExperienciaTecno.BackEnd.Core.Product.Services;
 using Microsoft.AspNetCore.Mvc;

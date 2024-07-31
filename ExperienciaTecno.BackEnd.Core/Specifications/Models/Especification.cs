@@ -1,4 +1,4 @@
-﻿namespace ExperienciaTecno.BackEnd.Core.Especificationes.Models;
+﻿namespace ExperienciaTecno.BackEnd.Core.Specifications.Models;
 
 public class Especification
 {

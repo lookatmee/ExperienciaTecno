@@ -1,4 +1,4 @@
-﻿using ExperienciaTecno.BackEnd.Core.Especificationes.Models;
+﻿using ExperienciaTecno.BackEnd.Core.Specifications.Models;
 
 namespace ExperienciaTecno.BackEnd.Core.Product.Models;
 

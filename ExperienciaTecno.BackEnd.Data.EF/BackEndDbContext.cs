@@ -1,5 +1,5 @@
 ﻿using ExperienciaTecno.BackEnd.Core.Category.Models;
-using ExperienciaTecno.BackEnd.Core.Especificationes.Models;
+using ExperienciaTecno.BackEnd.Core.Specifications.Models;
 using ExperienciaTecno.BackEnd.Core.Manufacturer.Models;
 using ExperienciaTecno.BackEnd.Core.Product.Models;
 using ExperienciaTecno.BackEnd.Data.EF.Mappings;

@@ -1,5 +1,5 @@
-﻿using ExperienciaTecno.BackEnd.Core.Especificationes.Models;
-using ExperienciaTecno.BackEnd.Core.Especificationes.Repositories;
+﻿using ExperienciaTecno.BackEnd.Core.Specifications.Models;
+using ExperienciaTecno.BackEnd.Core.Specifications.Repositories;
 using ExperienciaTecno.BackEnd.Data.EF.Common.Repositories;
 using Microsoft.EntityFrameworkCore;
 
