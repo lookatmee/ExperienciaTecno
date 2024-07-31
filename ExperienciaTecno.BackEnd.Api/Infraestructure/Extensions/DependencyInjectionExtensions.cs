@@ -39,7 +39,7 @@ public static class DependencyInjectionExtensions
         services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<IManufacturerService, ManufacturerService>();
         services.AddScoped<IProductService, ProductService>();
-        services.AddScoped<IEspecificationService, EspecificationService>();
+        services.AddScoped<ISpecificationService, SpecificationService>();
     }
 
     public static void RegisterRepositories(this IServiceCollection services)
@@ -47,7 +47,7 @@ public static class DependencyInjectionExtensions
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IManufacturerRepository, ManufacturerRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
-        services.AddScoped<IEspecificationRepository, EspecificationRepository>();
+        services.AddScoped<ISpecificationRepository, SpecificationRepository>();
     }
 
     public static void RegisterValidators(this IServiceCollection services)

@@ -12,7 +12,7 @@ public class Product
     public string ImagePath1 { get; set; } = null!;
     public string ImagePath2 { get; set; } = null!;
     public string ImagePath3 { get; set; } = null!;    
-    public ICollection<Especification>? Especifications { get; set; }
+    public ICollection<Specification>? Specifications { get; set; }
     public bool Enabled { get; set; }
     public Guid ManufacturerId { get; set; }
     public Guid CategoryId { get; set; }

@@ -12,7 +12,7 @@ public class BackEndDbContext(DbContextOptions<BackEndDbContext> options) : DbCo
     public DbSet<Category> Categories { get; set; }
     public DbSet<Manufacturer> Manufacturers { get; set; }
     public DbSet<Product> Products { get; set; }
-    public DbSet<Especification> Especification { get; set; }
+    public DbSet<Specification> Specifications { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

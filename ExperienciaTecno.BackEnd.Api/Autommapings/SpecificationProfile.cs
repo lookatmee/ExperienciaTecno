@@ -8,6 +8,6 @@ public class SpecificationProfile : Profile
 {
     public SpecificationProfile()
     {
-        CreateMap<SpecificationDto, Especification>().ReverseMap();
+        CreateMap<SpecificationDto, Specification>().ReverseMap();
     }
 }

@@ -3,7 +3,7 @@ using ExperienciaTecno.BackEnd.Core.Specifications.Models;
 
 namespace ExperienciaTecno.BackEnd.Core.Specifications.Repositories;
 
-public interface IEspecificationRepository : IGenericRepository<Especification>
+public interface ISpecificationRepository : IGenericRepository<Specification>
 {
-    Task<IEnumerable<Especification>> GetSpecificationsByProductId(Guid productId);
+    Task<IEnumerable<Specification>> GetSpecificationsByProductId(Guid productId);
 }
