@@ -33,4 +33,14 @@ public class EspecificationService : IEspecificationService
 
         await EspecificationRepository.AddRangeAsync(specifications);
     }
+
+    public async Task Delete(Guid productId)
+    {
+        var specificationList = await EspecificationRepository.GetSpecificationsByProductId(productId);
+
+        if (specificationList.Any())
+        {
+            EspecificationRepository.RemoveRange(specificationList);
+        }
+    }
 }
