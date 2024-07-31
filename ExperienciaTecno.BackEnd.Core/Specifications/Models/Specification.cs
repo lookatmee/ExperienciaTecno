@@ -1,6 +1,6 @@
-﻿namespace ExperienciaTecno.BackEnd.Core.Especificationes.Models;
+﻿namespace ExperienciaTecno.BackEnd.Core.Specifications.Models;
 
-public class Especification
+public class Specification
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     public string? Label { get; set; }

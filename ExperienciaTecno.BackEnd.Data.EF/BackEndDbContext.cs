@@ -1,5 +1,5 @@
 ﻿using ExperienciaTecno.BackEnd.Core.Category.Models;
-using ExperienciaTecno.BackEnd.Core.Especificationes.Models;
+using ExperienciaTecno.BackEnd.Core.Specifications.Models;
 using ExperienciaTecno.BackEnd.Core.Manufacturer.Models;
 using ExperienciaTecno.BackEnd.Core.Product.Models;
 using ExperienciaTecno.BackEnd.Data.EF.Mappings;
@@ -12,7 +12,7 @@ public class BackEndDbContext(DbContextOptions<BackEndDbContext> options) : DbCo
     public DbSet<Category> Categories { get; set; }
     public DbSet<Manufacturer> Manufacturers { get; set; }
     public DbSet<Product> Products { get; set; }
-    public DbSet<Especification> Especification { get; set; }
+    public DbSet<Specification> Specifications { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -10,7 +10,7 @@ public class ProductProfile : Profile
     {
         CreateMap<CreateProductDto, Product>();
         CreateMap<Product, ProductDto>()
-            .ForMember(d => d.Specifications, o => o.MapFrom(src => src.Especifications));        
+            .ForMember(d => d.Specifications, o => o.MapFrom(src => src.Specifications));        
         CreateMap<Product, Product>().ForMember(d => d.Id, o => o.Ignore());
         CreateMap<UpdateProductDto, Product>();
     }

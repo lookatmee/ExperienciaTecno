@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
-using ExperienciaTecno.BackEnd.Api.Controllers.Dtos.Manufacturer;
 using ExperienciaTecno.BackEnd.Api.Controllers.Dtos.Product;
 using ExperienciaTecno.BackEnd.Core.Common.Data;
 using ExperienciaTecno.BackEnd.Core.Common.Exceptions;
-using ExperienciaTecno.BackEnd.Core.Especificationes.Models;
-using ExperienciaTecno.BackEnd.Core.Especificationes.Services;
-using ExperienciaTecno.BackEnd.Core.Manufacturer.Services.Impl;
+using ExperienciaTecno.BackEnd.Core.Specifications.Models;
+using ExperienciaTecno.BackEnd.Core.Specifications.Services;
 using ExperienciaTecno.BackEnd.Core.Product.Models;
 using ExperienciaTecno.BackEnd.Core.Product.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +12,10 @@ namespace ExperienciaTecno.BackEnd.Api.Controllers
 {
     [ApiController]
     [Route("api/products")]
-    public class ProductController(IProductService productService, IEspecificationService especificationService, IMapper mapper, IUnitOfWork unitOfWork) : Controller
+    public class ProductController(IProductService productService, ISpecificationService specificationService, IMapper mapper, IUnitOfWork unitOfWork) : Controller
     {
         private IProductService ProductService { get; } = productService;
-        private IEspecificationService EspecificationService { get; } = especificationService;
+        private ISpecificationService SpecificationService { get; } = specificationService;
         private IMapper Mapper { get; } = mapper;
         private IUnitOfWork UnitOfWork { get; } = unitOfWork;
 
@@ -25,12 +23,11 @@ namespace ExperienciaTecno.BackEnd.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<ProductDto>> GetById(Guid Id)
+        public async Task<ActionResult<ProductDto>> GetById(Guid id)
         {
             try
             {
-                var product = await ProductService.GetById(Id);
-
+                var product = await ProductService.GetById(id);
                 var productDto = Mapper.Map<ProductDto>(product);
 
                 return Ok(productDto);
@@ -77,9 +74,9 @@ namespace ExperienciaTecno.BackEnd.Api.Controllers
                 var product = Mapper.Map<Product>(createProductDto);
                 await ProductService.Add(product);
 
-                var specifications = createProductDto.Specifications.Select(x => Mapper.Map<Especification>(x)).ToList();
+                var specifications = createProductDto.Specifications.Select(x => Mapper.Map<Specification>(x)).ToList();
                 specifications.ForEach(x => x.Product = product);
-                await EspecificationService.AddRangeAsync(specifications);
+                await SpecificationService.AddRangeAsync(specifications);
 
                 await UnitOfWork.CommitAsync();
 
@@ -113,9 +110,9 @@ namespace ExperienciaTecno.BackEnd.Api.Controllers
 
                 await ProductService.Update(productToUpdate);
 
-                var specifications = updateProductDto.Specifications.Select(x => Mapper.Map<Especification>(x)).ToList();
+                var specifications = updateProductDto.Specifications.Select(x => Mapper.Map<Specification>(x)).ToList();
                 specifications.ForEach (x => x.Product = productToUpdate);
-                await EspecificationService.UpdateAll(productToUpdate.Id, specifications);
+                await SpecificationService.UpdateAll(productToUpdate.Id, specifications);
 
                 await UnitOfWork.CommitAsync();
 
@@ -146,7 +143,7 @@ namespace ExperienciaTecno.BackEnd.Api.Controllers
             {
                 var productToSearch = await ProductService.GetById(id);
 
-                await especificationService.Delete(productToSearch.Id);
+                await SpecificationService.Delete(productToSearch.Id);
                 await ProductService.Delete(productToSearch.Id);
                 await UnitOfWork.CommitAsync();
 
